@@ -1,13 +1,18 @@
 
 import { ArrowDown, Download, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import HeroIllustration from './HeroIllustration';
 
 const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 relative overflow-hidden pt-20">
-      {/* Illustration SVG en arrière-plan */}
-      <HeroIllustration />
+      {/* Image d'illustration en arrière-plan */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-20">
+        <img 
+          src="/lovable-uploads/d4752443-ea06-4e1f-bdf9-2d01dfc30f3e.png" 
+          alt="Femme afro travaillant sur ordinateur" 
+          className="w-auto h-[70%] object-contain"
+        />
+      </div>
       
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
