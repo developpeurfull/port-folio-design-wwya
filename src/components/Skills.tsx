@@ -7,7 +7,8 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Frontend",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-purple-500 to-indigo-500",
+      bgColor: "from-purple-50 to-indigo-50",
       skills: [
         { name: "React/Next.js", level: 95 },
         { name: "TypeScript", level: 90 },
@@ -17,7 +18,8 @@ const Skills = () => {
     },
     {
       title: "Backend",
-      color: "from-green-500 to-emerald-500",
+      color: "from-emerald-500 to-teal-500",
+      bgColor: "from-emerald-50 to-teal-50",
       skills: [
         { name: "Node.js", level: 90 },
         { name: "Python", level: 85 },
@@ -27,7 +29,8 @@ const Skills = () => {
     },
     {
       title: "Design & Tools",
-      color: "from-purple-500 to-pink-500",
+      color: "from-pink-500 to-rose-500",
+      bgColor: "from-pink-50 to-rose-50",
       skills: [
         { name: "Figma", level: 90 },
         { name: "Adobe Creative", level: 85 },
@@ -44,12 +47,12 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+    <section id="skills" className="py-20 bg-gradient-to-br from-orange-50 via-pink-50 to-purple-50">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-600 via-pink-600 to-purple-600 bg-clip-text text-transparent mb-6">
               Compétences & Expertise
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -61,7 +64,8 @@ const Skills = () => {
           {/* Skills Categories */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {skillCategories.map((category, index) => (
-              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-white/90 backdrop-blur-sm overflow-hidden">
+                <div className={`h-2 bg-gradient-to-r ${category.color}`}></div>
                 <CardHeader className="pb-4">
                   <CardTitle className={`text-xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
                     {category.title}
@@ -72,15 +76,14 @@ const Skills = () => {
                     <div key={skillIndex} className="space-y-2">
                       <div className="flex justify-between items-center">
                         <span className="font-medium text-gray-700">{skill.name}</span>
-                        <span className="text-sm text-gray-500">{skill.level}%</span>
+                        <span className="text-sm text-gray-500 font-semibold">{skill.level}%</span>
                       </div>
-                      <Progress 
-                        value={skill.level} 
-                        className="h-2"
-                        style={{
-                          background: `linear-gradient(to right, ${category.color.includes('blue') ? '#3b82f6' : category.color.includes('green') ? '#10b981' : '#8b5cf6'} 0%, ${category.color.includes('blue') ? '#06b6d4' : category.color.includes('green') ? '#34d399' : '#ec4899'} 100%)`
-                        }}
-                      />
+                      <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                        <div 
+                          className={`h-full bg-gradient-to-r ${category.color} rounded-full transition-all duration-1000 ease-out`}
+                          style={{ width: `${skill.level}%` }}
+                        ></div>
+                      </div>
                     </div>
                   ))}
                 </CardContent>
@@ -90,13 +93,15 @@ const Skills = () => {
 
           {/* Technologies Cloud */}
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">Technologies Maîtrisées</h3>
+            <h3 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-purple-700 bg-clip-text text-transparent mb-8">
+              Technologies Maîtrisées
+            </h3>
             <div className="flex flex-wrap justify-center gap-3">
               {technologies.map((tech, index) => (
                 <Badge 
                   key={index} 
                   variant="secondary" 
-                  className="px-4 py-2 text-sm font-medium bg-white hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-700 transition-all duration-300 cursor-default border hover:border-blue-200 hover:shadow-md"
+                  className="px-6 py-3 text-sm font-medium bg-white/80 backdrop-blur-sm hover:bg-gradient-to-r hover:from-purple-50 hover:via-pink-50 hover:to-orange-50 hover:text-purple-700 transition-all duration-300 cursor-default border-2 border-transparent hover:border-purple-200 hover:shadow-lg hover:scale-105"
                 >
                   {tech}
                 </Badge>
